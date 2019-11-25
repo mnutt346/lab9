@@ -4,6 +4,7 @@
 #include "queueBuffer.hpp"
 #include "randomNum.hpp"
 
+using std::cin;
 using std::cout;
 using std::endl;
 using std::fixed;
@@ -58,6 +59,10 @@ void queueBuffer(int rounds, int addPercent, int removePercent, queue<int> &buff
         // Print average length;
         double average;
         printAverageLength(i, average, buffer);
+
+        cout << endl
+             << "Press enter to continue." << endl;
+        cin.get();
     }
 }
 

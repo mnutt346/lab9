@@ -5,7 +5,9 @@
 #include "menu.hpp"
 #include "inputValidation.hpp"
 #include "queueBuffer.hpp"
+#include "palindrome.hpp"
 
+using std::cin;
 using std::cout;
 using std::endl;
 using std::queue;
@@ -35,4 +37,23 @@ void runProgram()
     queue<int> buffer;
 
     queueBuffer(totalRounds, addProbability, removeProbability, buffer);
+
+    // Prompt the user to enter a string to be converted to a palindrome
+    string userInput;
+
+    cout << endl
+         << "Now we are going to create a palindrome!" << endl
+         << "Please enter a string, and the program will turn it in to a palindrome." << endl;
+
+    getline(cin, userInput);
+
+    while (!isAlphaNumInput(userInput))
+    {
+        cout << endl
+             << "Invalid input. Please enter only alpha-numeric characters." << endl;
+
+        getline(cin, userInput);
+    }
+
+    palindrome(userInput);
 }
